@@ -55,14 +55,34 @@
         android:textSize="16sp"
         android:layout_marginBottom="40dp"/>
 
-    <Button
-        android:id="@+id/button_entrar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:backgroundTint="#FFBB00"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:text="ENTRAR"
-        android:textColor="#000000"
-        android:textSize="25sp" />
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/button_voltar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="VOLTAR"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:backgroundTint="#FFBB00"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/button_entrar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="ENTRAR"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:backgroundTint="#FFBB00"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
 
 </LinearLayout>

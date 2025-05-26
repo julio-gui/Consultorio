@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         val inputPassword = findViewById<EditText>(R.id.input_password)
         val buttonEntrar = findViewById<Button>(R.id.button_entrar)
         val buttonEsqueciSenha = findViewById<Button>(R.id.button_esqueci_senha)
+        val buttonVoltar = findViewById<Button>(R.id.button_voltar)
 
         buttonEntrar.setOnClickListener {
             val email = inputEmail.text.toString().trim()
@@ -49,6 +50,13 @@ class LoginActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
+        }
+
+        buttonVoltar.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP; Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
         }
 
         buttonEsqueciSenha.setOnClickListener {
