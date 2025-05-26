@@ -1,27 +1,25 @@
 package com.example.consultorio
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import io.github.jan.supabase.postgrest.postgrest
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CadastroActivity : AppCompatActivity() {
-    private val TAG = "CadastroActivity"
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cadastro)
+
+        // Inicializa Firebase Auth e Firestore
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         val btnVoltar = findViewById<Button>(R.id.button_voltar)
         btnVoltar.setOnClickListener {
@@ -34,7 +32,6 @@ class CadastroActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun registrarUsuario() {
         val inputName = findViewById<EditText>(R.id.input_name)
         val inputNumber = findViewById<EditText>(R.id.input_number)
@@ -42,6 +39,7 @@ class CadastroActivity : AppCompatActivity() {
         val inputPassword = findViewById<EditText>(R.id.input_password)
         val inputConfirmPassword = findViewById<EditText>(R.id.input_confirm_password)
 
+        // Validação dos campos
         if (inputName.text.toString().trim().isEmpty() ||
             inputNumber.text.toString().trim().isEmpty() ||
             inputEmail.text.toString().trim().isEmpty() ||
@@ -57,37 +55,46 @@ class CadastroActivity : AppCompatActivity() {
 
         showToast("Cadastrando...")
 
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val paciente = mapOf(
-                    "nome" to inputName.text.toString().trim(),
-                    "numero" to inputNumber.text.toString().trim(),
-                    "email" to inputEmail.text.toString().trim(),
-                    "senha" to inputPassword.text.toString()
-                )
+        val email = inputEmail.text.toString().trim()
+        val password = inputPassword.text.toString().trim()
 
-                Log.d(TAG, "Tentando conectar ao Supabase...")
+        // Criação do usuário no Firebase Auth
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Usuário criado com sucesso no Auth, agora salvar dados adicionais no Firestore
+                    val user = auth.currentUser
+                    val userId = user?.uid ?: ""
 
-                val response = SupabaseClient.supabase.postgrest["pacientes"].insert(paciente)
-                Log.d(TAG, "Resposta do Supabase: $response")
+                    val paciente = hashMapOf(
+                        "nome" to inputName.text.toString().trim(),
+                        "numero" to inputNumber.text.toString().trim(),
+                        "email" to email,
+                        // Não armazenamos a senha no Firestore por segurança
+                        "uid" to userId
+                    )
 
-                withContext(Dispatchers.Main) {
-                    showToast("Cadastro realizado com sucesso!")
-                    startActivity(Intent(this@CadastroActivity, MainActivity::class.java))
-                    finish()
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "Erro no cadastro", e)
-                withContext(Dispatchers.Main) {
-                    showToast("Erro ao cadastrar: ${e.message ?: "Erro desconhecido"}")
+                    // Salva os dados do paciente no Firestore
+                    db.collection("pacientes")
+                        .document(userId)
+                        .set(paciente)
+                        .addOnSuccessListener {
+                            showToast("Cadastro realizado com sucesso!")
+                            startActivity(Intent(this, MainActivity::class.java))
+                            finish()
+                        }
+                        .addOnFailureListener { e ->
+                            showToast("Erro ao salvar dados do paciente: ${e.message}")
+                            // Opcional: deletar o usuário criado no Auth se falhar no Firestore
+                            user?.delete()
+                        }
+                } else {
+                    showToast("Erro no cadastro: ${task.exception?.message ?: "Erro desconhecido"}")
                 }
             }
-        }
     }
 
     private fun showToast(message: String) {
-        runOnUiThread {
-            Toast.makeText(this@CadastroActivity, message, Toast.LENGTH_LONG).show()
-        }
+        Toast.makeText(this@CadastroActivity, message, Toast.LENGTH_LONG).show()
     }
 }
