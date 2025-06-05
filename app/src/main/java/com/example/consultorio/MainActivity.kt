@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.consultorio.utils.DBUtils
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        checkUserLogged()
 
         val criarLoginBtn = findViewById<Button>(R.id.btnCriarLogin)
         criarLoginBtn.setOnClickListener {
@@ -31,5 +33,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun checkUserLogged() {
+        if (DBUtils.auth.currentUser != null) {
+            startActivity(Intent(this, ServicosActivity::class.java))
+            finish()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        checkUserLogged()
     }
 }
