@@ -10,102 +10,112 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="216dp"
-            android:src="@drawable/banner_topo"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp"/>
-
         <!-- ORTODONTIA -->
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="85dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ortodontia" />
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Ortodontia"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
+            android:layout_height="40dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/fundo_amarelo_curvado"
-            android:layout_marginBottom="8dp"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="139dp"
-            android:src="@drawable/img_ortodontia"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="8dp"/>
+            android:gravity="center"
+            android:text="Ortodontia"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_agendar_ortodontia"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:text="AGENDAR CONSULTA"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/amarelo_personalizado"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#000000"
-            android:background="@drawable/fundo_amarelo"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="8dp" />
 
         <!-- CLAREAMENTO -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/clareamento" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Clareamento"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/fundo_amarelo_curvado"
-            android:layout_marginBottom="8dp"/>
+            android:gravity="center"
+            android:text="Clareamento"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_agendar_clareamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGENDAR CONSULTA"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/amarelo_personalizado"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- AVALIAÇÃO -->
+
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="165dp"
-            android:src="@drawable/img_clareamento"
+            android:layout_height="90dp"
+            android:layout_marginBottom="0dp"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="8dp"/>
+            android:src="@drawable/avaliacao" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:text="AGENDAR CONSULTA"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:background="@drawable/fundo_amarelo"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- AVALIAÇÃO -->
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Avaliação"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
+            android:layout_height="40dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/fundo_amarelo_curvado"
-            android:layout_marginBottom="8dp"/>
+            android:gravity="center"
+            android:text="Ortodontia"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_agendar_avaliacao"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:text="AGENDAR CONSULTA"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/amarelo_personalizado"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#000000"
-            android:background="@drawable/fundo_amarelo"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="12dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/calendario" />
 
         <!-- Rodapé -->
         <Button
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/amarelo_personalizado"
             android:text="CANCELAR"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:textColor="#000000"
-            android:background="@drawable/fundo_amarelo"/>
-
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
