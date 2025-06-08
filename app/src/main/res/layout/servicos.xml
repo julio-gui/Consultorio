@@ -110,10 +110,11 @@
 
         <!-- Rodapé -->
         <Button
+            android:id="@+id/button_sair"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:backgroundTint="@color/amarelo_personalizado"
-            android:text="CANCELAR"
+            android:text="SAIR"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />

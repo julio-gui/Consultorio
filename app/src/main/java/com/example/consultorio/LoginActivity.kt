@@ -8,16 +8,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.consultorio.utils.DBUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-
-        auth = FirebaseAuth.getInstance()
 
         val inputEmail = findViewById<EditText>(R.id.input_email)
         val inputPassword = findViewById<EditText>(R.id.input_password)
@@ -36,10 +34,10 @@ class LoginActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Autenticando...", Toast.LENGTH_SHORT).show()
 
-            auth.signInWithEmailAndPassword(email, password)
+            DBUtils.auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, AgendamentosActivity::class.java)
+                        val intent = Intent(this, ServicosActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -80,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        auth.sendPasswordResetEmail(email)
+        DBUtils.auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
