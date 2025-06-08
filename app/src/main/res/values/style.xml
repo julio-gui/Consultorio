@@ -1,0 +1,12 @@
+<style name="CalendarViewCustom" parent="Theme.MaterialComponents.DayNight">
+    <item name="android:weekDayTextAppearance">@style/WeekDayTextStyle</item>
+    <item name="android:dateTextAppearance">@style/DateTextStyle</item>
+</style>
+
+<style name="WeekDayTextStyle" parent="TextAppearance.MaterialComponents.Body2">
+<item name="android:textColor">#FFC107</item>
+</style>
+
+<style name="DateTextStyle" parent="TextAppearance.MaterialComponents.Body2">
+<item name="android:textColor">#FFFFFF</item>
+</style>
