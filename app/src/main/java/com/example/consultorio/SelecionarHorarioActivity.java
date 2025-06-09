@@ -1,5 +1,6 @@
 package com.example.consultorio;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -68,7 +69,7 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(v -> {
             if (horarioSelecionado != null) {
                 String dataSelecionada = getIntent().getStringExtra("data");
-                String servico = "Ortodontia";
+                String servico = getIntent().getStringExtra("servico");
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 Map<String, Object> agendamento = new HashMap<>();
@@ -94,7 +95,11 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
                                         .add(agendamento)
                                         .addOnSuccessListener(documentReference -> {
                                             Toast.makeText(this, "Confirmado: " + horarioSelecionado, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(this, MainActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(intent);
                                             finish();
+
                                         })
                                         .addOnFailureListener(e -> {
                                             Toast.makeText(this, "Erro ao salvar agendamento: " + e.getMessage(), Toast.LENGTH_LONG).show();

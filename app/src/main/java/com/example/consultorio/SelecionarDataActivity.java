@@ -24,10 +24,12 @@ public class SelecionarDataActivity extends AppCompatActivity {
             dataSelecionada = dayOfMonth + "/" + (month + 1) + "/" + year;
         });
 
+        String servico = getIntent().getStringExtra("servico");
         btnSelecionarHorario.setOnClickListener(v -> {
             if (!dataSelecionada.isEmpty()) {
                 Intent intent = new Intent(this, com.example.consultorio.SelecionarHorarioActivity.class);
                 intent.putExtra("data", dataSelecionada);
+                intent.putExtra("servico", servico);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Selecione uma data primeiro!", Toast.LENGTH_SHORT).show();
