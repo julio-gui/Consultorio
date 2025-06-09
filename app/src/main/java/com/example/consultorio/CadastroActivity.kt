@@ -17,7 +17,6 @@ class CadastroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cadastro)
 
-        // Inicializa Firebase Auth e Firestore
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
@@ -58,11 +57,10 @@ class CadastroActivity : AppCompatActivity() {
         val email = inputEmail.text.toString().trim()
         val password = inputPassword.text.toString().trim()
 
-        // Criação do usuário no Firebase Auth
+        // Criação do usuário
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Usuário criado com sucesso no Auth, agora salvar dados adicionais no Firestore
                     val user = auth.currentUser
                     val userId = user?.uid ?: ""
 
@@ -70,11 +68,10 @@ class CadastroActivity : AppCompatActivity() {
                         "nome" to inputName.text.toString().trim(),
                         "numero" to inputNumber.text.toString().trim(),
                         "email" to email,
-                        // Não armazenamos a senha no Firestore por segurança
                         "uid" to userId
                     )
 
-                    // Salva os dados do paciente no Firestore
+                    // Salva os dados do paciente
                     db.collection("pacientes")
                         .document(userId)
                         .set(paciente)
@@ -85,7 +82,6 @@ class CadastroActivity : AppCompatActivity() {
                         }
                         .addOnFailureListener { e ->
                             showToast("Erro ao salvar dados do paciente: ${e.message}")
-                            // Opcional: deletar o usuário criado no Auth se falhar no Firestore
                             user?.delete()
                         }
                 } else {

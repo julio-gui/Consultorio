@@ -35,4 +35,3 @@ public class SelecionarDataActivity extends AppCompatActivity {
         });
     }
 }
-
