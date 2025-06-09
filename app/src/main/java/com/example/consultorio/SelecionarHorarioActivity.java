@@ -78,13 +78,31 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
                 agendamento.put("servico", servico);
 
                 db.collection("agendamentos")
-                        .add(agendamento)
-                        .addOnSuccessListener(documentReference -> {
-                            Toast.makeText(this, "Confirmado: " + horarioSelecionado, Toast.LENGTH_SHORT).show();
-                            finish();
+                        .whereEqualTo("data", dataSelecionada)
+                        .whereEqualTo("horario", horarioSelecionado)
+                        .get()
+                        .addOnSuccessListener(queryDocumentSnapshots -> {
+                            if (!queryDocumentSnapshots.isEmpty()) {
+                                Toast.makeText(this, "Horário indisponível. Escolha outro.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                agendamento.put("userId", userId);
+                                agendamento.put("data", dataSelecionada);
+                                agendamento.put("horario", horarioSelecionado);
+                                agendamento.put("servico", servico);
+
+                                db.collection("agendamentos")
+                                        .add(agendamento)
+                                        .addOnSuccessListener(documentReference -> {
+                                            Toast.makeText(this, "Confirmado: " + horarioSelecionado, Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Toast.makeText(this, "Erro ao salvar agendamento: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                        });
+                            }
                         })
                         .addOnFailureListener(e -> {
-                            Toast.makeText(this, "Erro ao salvar agendamento: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "Erro ao verificar disponibilidade: " + e.getMessage(), Toast.LENGTH_LONG).show();
                         });
             } else {
                 Toast.makeText(this, "Selecione um horário primeiro", Toast.LENGTH_SHORT).show();
