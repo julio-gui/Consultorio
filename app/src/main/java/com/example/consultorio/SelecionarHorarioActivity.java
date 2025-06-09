@@ -1,10 +1,9 @@
-package com.seuapp.nome; // troque para o seu package
+package com.example.consultorio; // troque para o seu package
 
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -37,7 +36,7 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
             TextView tv = new TextView(this);
             tv.setText(hora);
             tv.setTextColor(Color.parseColor("#2196F3")); // Azul
-            tv.setBackgroundResource(R.drawable.borda_azul); // Borda azul (veja abaixo)
+            // tv.setBackgroundResource(R.drawable.borda_azul); // Borda azul (veja abaixo)
             tv.setTextSize(20);
             tv.setTypeface(null, Typeface.BOLD);
             tv.setPadding(32, 32, 32, 32);

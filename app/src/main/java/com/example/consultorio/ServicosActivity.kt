@@ -20,5 +20,10 @@ class ServicosActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        val buttonAgendarOrtodontia = findViewById<Button>(R.id.btn_agendar_ortodontia)
+        buttonAgendarOrtodontia.setOnClickListener {
+            val intent = Intent(this, SelecionarDataActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

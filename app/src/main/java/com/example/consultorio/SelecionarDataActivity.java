@@ -1,4 +1,4 @@
-package com.seuapp;
+package com.example.consultorio;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ public class SelecionarDataActivity extends AppCompatActivity {
 
         btnSelecionarHorario.setOnClickListener(v -> {
             if (!dataSelecionada.isEmpty()) {
-                Intent intent = new Intent(this, com.seuapp.SelecionarHorarioActivity.class);
+                Intent intent = new Intent(this, com.example.consultorio.SelecionarHorarioActivity.class);
                 intent.putExtra("data", dataSelecionada);
                 startActivity(intent);
             } else {
