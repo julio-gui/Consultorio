@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2F2C2C"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/corner_icon"
+        android:layout_width="40dp"
+        android:layout_height="38dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_corner_icon"
+        android:contentDescription="Ícone de Canto" />
+
+    <TextView
+        android:id="@+id/schedule_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="AGENDAMENTO"
+        android:textColor="#FFE74B"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/finished_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="3dp"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="FINALIZADO!"
+        android:textColor="#FFE74B"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/check_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_check_circle"
+        android:contentDescription="Ícone de Verificação" />
+
+    <LinearLayout
+        android:id="@+id/blue_background_container"
+        android:layout_width="match_parent"
+        android:layout_height="288dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:background="#C0E0FF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/appointment_details_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="21dp"
+            android:gravity="center"
+            android:text="Paciente: Charlie Puth\nProcedimento: Manutenção\nData: 22/04/2025\nHorário: 10:00 hrs"
+            android:textColor="@android:color/black"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/payment_reminder_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="LEMBRETE: VOCÊ PAGARÁ DIRETAMENTE NA CLÍNICA"
+            android:textColor="#F50E0E"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/thank_you_text_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="OBRIGADO PELA SUA PREFERÊNCIA,\nVOLTE SEMPRE!"
+        android:textColor="@android:color/white"
+        android:textSize="23sp" />
+
+</LinearLayout>
