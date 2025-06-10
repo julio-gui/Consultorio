@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2F2C2C"
+    android:paddingTop="13dp"
+    android:paddingStart="7dp"
+    android:paddingEnd="7dp">
+
+    <!-- Quadrado branco no topo -->
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="26dp"
+        android:src="@drawable/vector"
+        android:layout_gravity="start"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Abril -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="95.25dp"
+            android:layout_height="75dp"
+            android:src="@drawable/calendar"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="ABRIL 2025"
+            android:textSize="32sp"
+            android:textColor="#FFBB00"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Maio -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="95.25dp"
+            android:layout_height="75dp"
+            android:src="@drawable/calendar"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="MAIO 2025"
+            android:textSize="32sp"
+            android:textColor="#FFBB00"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Junho -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="95.25dp"
+            android:layout_height="75dp"
+            android:src="@drawable/calendar"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="JUNHO 2025"
+            android:textSize="32sp"
+            android:textColor="#FFBB00"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Julho -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="95.25dp"
+            android:layout_height="75dp"
+            android:src="@drawable/calendar"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="JULHO 2025"
+            android:textSize="32sp"
+            android:textColor="#FFBB00"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Agosto -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="95.25dp"
+            android:layout_height="75dp"
+            android:src="@drawable/calendar"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="AGOSTO 2025"
+            android:textSize="32sp"
+            android:textColor="#FFBB00"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>
