@@ -19,9 +19,10 @@
         android:textSize="45sp"
         android:fontFamily="" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="292dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tooth_cracked"/>
 
     <Button
         android:id="@+id/button_login"
