@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F2C2C"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ABRIL 2025"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:padding="16dp" />
+
+        <!-- Dias da semana -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView style="@style/DiaSemanaStyle" android:text="Seg" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Ter" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Qua" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Qui" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Sex" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Sab" />
+            <TextView style="@style/DiaSemanaStyle" android:text="Dom" />
+        </LinearLayout>
+
+        <!-- Semana 1 -->
+        <LinearLayout style="@style/SemanaStyle">
+            <TextView style="@style/DiaMesCinzaStyle" android:text="29" />
+            <TextView style="@style/DiaMesCinzaStyle" android:text="30" />
+            <TextView style="@style/DiaMesCinzaStyle" android:text="31" />
+            <TextView style="@style/DiaMesStyle" android:text="1" />
+            <TextView style="@style/DiaMesStyle" android:text="2" />
+            <TextView style="@style/DiaMesStyle" android:text="3" />
+            <TextView style="@style/DiaMesStyle" android:text="4" />
+        </LinearLayout>
+
+        <!-- Semana 2 -->
+        <LinearLayout style="@style/SemanaStyle">
+            <TextView style="@style/DiaMesStyle" android:text="5" />
+            <TextView style="@style/DiaMesStyle" android:text="6" />
+            <TextView style="@style/DiaMesStyle" android:text="7" />
+            <TextView style="@style/DiaMesStyle" android:text="8" />
+            <TextView style="@style/DiaMesStyle" android:text="9" />
+            <TextView style="@style/DiaMesStyle" android:text="10" />
+            <TextView style="@style/DiaMesStyle" android:text="11" />
+        </LinearLayout>
+
+        <!-- Semana 3 -->
+        <LinearLayout style="@style/SemanaStyle">
+            <TextView style="@style/DiaMesStyle" android:text="12" />
+            <TextView style="@style/DiaMesStyle" android:text="13" />
+            <TextView style="@style/DiaMesStyle" android:text="14" />
+            <TextView style="@style/DiaMesStyle" android:text="15" />
+            <TextView style="@style/DiaMesStyle" android:text="16" />
+            <TextView style="@style/DiaMesStyle" android:text="17" />
+            <TextView style="@style/DiaMesStyle" android:text="18" />
+        </LinearLayout>
+
+        <!-- Semana 4 -->
+        <LinearLayout style="@style/SemanaStyle">
+            <TextView style="@style/DiaMesStyle" android:text="19" />
+            <TextView style="@style/DiaMesStyle" android:text="20" />
+            <TextView style="@style/DiaMesStyle" android:text="21" />
+            <TextView style="@style/DiaMesStyle" android:text="22" />
+            <TextView style="@style/DiaMesStyle" android:text="23" />
+            <TextView style="@style/DiaMesStyle" android:text="24" />
+            <TextView style="@style/DiaMesStyle" android:text="25" />
+        </LinearLayout>
+
+        <!-- Semana 5 -->
+        <LinearLayout style="@style/SemanaStyle">
+            <TextView style="@style/DiaMesStyle" android:text="26" />
+            <TextView style="@style/DiaMesStyle" android:text="27" />
+            <TextView style="@style/DiaMesStyle" android:text="28" />
+            <TextView style="@style/DiaMesStyle" android:text="29" />
+            <TextView style="@style/DiaMesStyle" android:text="30" />
+            <TextView style="@style/DiaMesCinzaStyle" android:text="1" />
+            <TextView style="@style/DiaMesCinzaStyle" android:text="2" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
