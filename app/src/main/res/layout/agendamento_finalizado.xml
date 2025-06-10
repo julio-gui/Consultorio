@@ -58,7 +58,7 @@
     <LinearLayout
         android:id="@+id/blue_background_container"
         android:layout_width="match_parent"
-        android:layout_height="288dp"
+        android:layout_height="300dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -80,15 +80,15 @@
 
         <TextView
             android:id="@+id/payment_reminder_text"
-            android:layout_width="match_parent"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="30dp"
             android:gravity="center"
             android:text="LEMBRETE: VOCÊ PAGARÁ DIRETAMENTE NA CLÍNICA"
             android:textColor="#F50E0E"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
