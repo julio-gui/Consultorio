@@ -38,7 +38,6 @@ class CadastroActivity : AppCompatActivity() {
         val inputPassword = findViewById<EditText>(R.id.input_password)
         val inputConfirmPassword = findViewById<EditText>(R.id.input_confirm_password)
 
-        // Validação dos campos
         if (inputName.text.toString().trim().isEmpty() ||
             inputNumber.text.toString().trim().isEmpty() ||
             inputEmail.text.toString().trim().isEmpty() ||
@@ -57,7 +56,6 @@ class CadastroActivity : AppCompatActivity() {
         val email = inputEmail.text.toString().trim()
         val password = inputPassword.text.toString().trim()
 
-        // Criação do usuário
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -71,7 +69,6 @@ class CadastroActivity : AppCompatActivity() {
                         "uid" to userId
                     )
 
-                    // Salva os dados do paciente
                     db.collection("pacientes")
                         .document(userId)
                         .set(paciente)

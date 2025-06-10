@@ -1,5 +1,6 @@
 package com.example.consultorio
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -37,6 +38,14 @@ class ServicosActivity : AppCompatActivity() {
             val intent = Intent(this, SelecionarDataActivity::class.java)
             intent.putExtra("servico", "Avaliacao")
             startActivity(intent)
+        }
+    }
+
+    companion object {
+        fun createIntent(context: Context): Intent {
+            return Intent(context, ServicosActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            }
         }
     }
 }
