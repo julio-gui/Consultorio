@@ -72,7 +72,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
                         if (querySnapshot.isEmpty()) {
-                            confirmarAgendamento(agendamento);
+                            confirmarAgendamento(agendamento, nomePaciente, dataFormatada, horario, servico);
                         } else {
                             Toast.makeText(this, "Horário indisponível", Toast.LENGTH_SHORT).show();
                         }
@@ -83,13 +83,17 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
         });
     }
 
-    private void confirmarAgendamento(Map<String, Object> agendamento) {
+    private void confirmarAgendamento(Map<String, Object> agendamento, String nome, String data, String horario, String servico) {
         db.collection("agendamentos")
                 .add(agendamento)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(this, "Agendamento confirmado!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, MainActivity.class));
-                    finish();
+                    Intent intent = new Intent(this, AgendamentoFinalizadoActivity.class);
+                    intent.putExtra("paciente", nome);
+                    intent.putExtra("data", data);
+                    intent.putExtra("horario", horario);
+                    intent.putExtra("servico", servico);
+                    startActivity(intent);
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Erro ao confirmar agendamento", Toast.LENGTH_SHORT).show();

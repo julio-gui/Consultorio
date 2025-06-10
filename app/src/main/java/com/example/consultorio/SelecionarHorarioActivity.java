@@ -11,14 +11,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SelecionarHorarioActivity extends AppCompatActivity {
 
@@ -70,12 +63,6 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
             if (horarioSelecionado != null) {
                 String dataSelecionada = getIntent().getStringExtra("data");
                 String servico = getIntent().getStringExtra("servico");
-
-                // Obtém o nome do usuário logado
-                String paciente = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-                if (paciente == null || paciente.isEmpty()) {
-                    paciente = "Usuário"; // Valor padrão caso não tenha nome
-                }
 
                 Intent confirmIntent = new Intent(this, ConfirmacaoAgendamentoActivity.class);
                 confirmIntent.putExtra("data", dataSelecionada);
