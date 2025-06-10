@@ -66,7 +66,8 @@ class CadastroActivity : AppCompatActivity() {
                         "nome" to inputName.text.toString().trim(),
                         "numero" to inputNumber.text.toString().trim(),
                         "email" to email,
-                        "uid" to userId
+                        "uid" to userId,
+                        "role" to "paciente"
                     )
 
                     db.collection("pacientes")

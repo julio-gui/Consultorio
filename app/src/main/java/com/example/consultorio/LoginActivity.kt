@@ -37,9 +37,7 @@ class LoginActivity : AppCompatActivity() {
             DBUtils.auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, ServicosActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        checkUserRole()
                     } else {
                         Toast.makeText(
                             this,
@@ -93,6 +91,20 @@ class LoginActivity : AppCompatActivity() {
                     }
                     Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
                 }
+            }
+    }
+
+    private fun checkUserRole() {
+        val uid = DBUtils.auth.currentUser?.uid ?: return
+        DBUtils.firestore.collection("users").document(uid).get()
+            .addOnSuccessListener {
+                val role = it.getString("role")
+                if (role == "admin") {
+                    // startActivity(Intent(this, PreceptorActivity::class.java))
+                } else {
+                    startActivity(Intent(this, ServicosActivity::class.java))
+                }
+                finish()
             }
     }
 }
