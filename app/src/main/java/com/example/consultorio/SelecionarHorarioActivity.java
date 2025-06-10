@@ -1,10 +1,10 @@
-package com.seuapp.nome; // troque para o seu package
+package com.example.consultorio;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -32,12 +32,11 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
         gridHorarios = findViewById(R.id.gridHorarios);
         Button btnConfirmar = findViewById(R.id.btnConfirmarHorario);
 
-        // Preencher dinamicamente os horários
         for (String hora : horarios) {
             TextView tv = new TextView(this);
             tv.setText(hora);
             tv.setTextColor(Color.parseColor("#2196F3")); // Azul
-            tv.setBackgroundResource(R.drawable.borda_azul); // Borda azul (veja abaixo)
+            // tv.setBackgroundResource(R.drawable.borda_azul); // Borda azul
             tv.setTextSize(20);
             tv.setTypeface(null, Typeface.BOLD);
             tv.setPadding(32, 32, 32, 32);
@@ -62,8 +61,15 @@ public class SelecionarHorarioActivity extends AppCompatActivity {
 
         btnConfirmar.setOnClickListener(v -> {
             if (horarioSelecionado != null) {
-                Toast.makeText(this, "Confirmado: " + horarioSelecionado, Toast.LENGTH_SHORT).show();
-                // Aqui você pode enviar para outra tela ou salvar a escolha
+                String dataSelecionada = getIntent().getStringExtra("data");
+                String servico = getIntent().getStringExtra("servico");
+
+                Intent confirmIntent = new Intent(this, ConfirmacaoAgendamentoActivity.class);
+                confirmIntent.putExtra("data", dataSelecionada);
+                confirmIntent.putExtra("horario", horarioSelecionado);
+                confirmIntent.putExtra("servico", servico);
+                startActivity(confirmIntent);
+
             } else {
                 Toast.makeText(this, "Selecione um horário primeiro", Toast.LENGTH_SHORT).show();
             }

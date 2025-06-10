@@ -1,5 +1,6 @@
 package com.example.consultorio
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -19,6 +20,32 @@ class ServicosActivity : AppCompatActivity() {
             DBUtils.auth.signOut()
             startActivity(intent)
             finish()
+        }
+        val buttonAgendarOrtodontia = findViewById<Button>(R.id.btn_agendar_ortodontia)
+        val buttonAgendarClareamento = findViewById<Button>(R.id.btn_agendar_clareamento)
+        val buttonAgendarAvaliacao = findViewById<Button>(R.id.btn_agendar_avaliacao)
+        buttonAgendarOrtodontia.setOnClickListener {
+            val intent = Intent(this, SelecionarDataActivity::class.java)
+            intent.putExtra("servico", "Ortodontia")
+            startActivity(intent)
+        }
+        buttonAgendarClareamento.setOnClickListener {
+            val intent = Intent(this, SelecionarDataActivity::class.java)
+            intent.putExtra("servico", "Clareamento")
+            startActivity(intent)
+        }
+        buttonAgendarAvaliacao.setOnClickListener {
+            val intent = Intent(this, SelecionarDataActivity::class.java)
+            intent.putExtra("servico", "Avaliacao")
+            startActivity(intent)
+        }
+    }
+
+    companion object {
+        fun createIntent(context: Context): Intent {
+            return Intent(context, ServicosActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            }
         }
     }
 }
