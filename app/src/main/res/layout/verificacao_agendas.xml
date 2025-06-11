@@ -61,6 +61,7 @@
 
     <!-- Clareamento 1 -->
     <LinearLayout
+        android:id="@+id/botaoClareamento"
         android:layout_width="430dp"
         android:layout_height="50dp"
         android:background="@drawable/fundo_amarelo_curvado"
@@ -84,6 +85,7 @@
 
     <!-- Clareamento 2 -->
     <LinearLayout
+        android:id="@+id/botaoAvaliacao"
         android:layout_width="436.76dp"
         android:layout_height="50dp"
         android:background="@drawable/fundo_amarelo_curvado"
