@@ -5,19 +5,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.consultorio.utils.DBUtils
+import com.example.consultorio.utils.DBUtils.auth
+import com.example.consultorio.utils.DBUtils.firestore
 
 class ServicosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.servicos)
 
+        checkUserRole()
+
         val buttonSair = findViewById<Button>(R.id.button_sair)
         buttonSair.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
-            DBUtils.auth.signOut()
+            auth.signOut()
             startActivity(intent)
             finish()
         }
@@ -47,5 +50,17 @@ class ServicosActivity : AppCompatActivity() {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
         }
+    }
+
+    private fun checkUserRole() {
+        val uid = auth.currentUser?.uid ?: return
+        firestore.collection("pacientes").document(uid).get()
+            .addOnSuccessListener {
+                val role = it.getString("role")
+                if (role == "admin") {
+                    startActivity(Intent(this, VerificacaoAgendasActivity::class.java))
+                    finish()
+                }
+            }
     }
 }

@@ -106,6 +106,7 @@
 
     <!-- Botão SAIR -->
     <LinearLayout
+        android:id="@+id/botaoSair"
         android:layout_width="302dp"
         android:layout_height="45dp"
         android:background="@drawable/fundo_amarelo_curvado"

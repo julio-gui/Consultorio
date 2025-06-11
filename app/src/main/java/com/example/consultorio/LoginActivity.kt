@@ -96,11 +96,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun checkUserRole() {
         val uid = DBUtils.auth.currentUser?.uid ?: return
-        DBUtils.firestore.collection("users").document(uid).get()
+        DBUtils.firestore.collection("pacientes").document(uid).get()
             .addOnSuccessListener {
                 val role = it.getString("role")
                 if (role == "admin") {
-                    // startActivity(Intent(this, PreceptorActivity::class.java))
+                    startActivity(Intent(this, VerificacaoAgendasActivity::class.java))
                 } else {
                     startActivity(Intent(this, ServicosActivity::class.java))
                 }
