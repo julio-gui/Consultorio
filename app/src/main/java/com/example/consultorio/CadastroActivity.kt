@@ -46,6 +46,20 @@ class CadastroActivity : AppCompatActivity() {
             return
         }
 
+        val phoneNumber = inputNumber.text.toString().trim()
+        val digitsOnly = phoneNumber.replace("[^0-9]".toRegex(), "") // Remove tudo que não é dígito
+
+        if (digitsOnly.length != 11) {
+            showToast("O número de telefone deve ter 11 dígitos")
+            return
+        }
+
+        if (inputPassword.text.toString().length < 6) {
+            showToast("A senha deve ter no mínimo 6 caracteres")
+            return
+        }
+
+
         if (inputPassword.text.toString() != inputConfirmPassword.text.toString()) {
             showToast("As senhas não coincidem")
             return
