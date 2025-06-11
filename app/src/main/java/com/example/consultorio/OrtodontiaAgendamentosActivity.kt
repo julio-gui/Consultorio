@@ -1,6 +1,7 @@
 package com.example.consultorio
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,9 @@ class OrtodontiaAgendamentosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.agendamentos)
+
+        val titulo = findViewById<TextView>(R.id.titulo)
+        titulo.text = "Agendamentos - Ortodontia"
 
         recyclerView = findViewById(R.id.recycler_agendamentos)
         recyclerView.layoutManager = LinearLayoutManager(this)
