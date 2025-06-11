@@ -13,11 +13,13 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imgBack1"
             android:layout_width="36dp"
             android:layout_height="26dp"
             android:src="@drawable/vector"/>
 
         <ImageView
+            android:id="@+id/imgBack2"
             android:layout_width="35dp"
             android:layout_height="23dp"
             android:layout_marginLeft="320dp"
@@ -31,7 +33,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PACIENTE:"
+        android:text="PACIENTES:"
         android:textSize="48sp"
         android:textColor="#FFBB00"
         android:gravity="center"
@@ -39,9 +41,10 @@
 
     <!-- Subtítulo Ortodontia -->
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ortodontia"
+        android:text=""
         android:textSize="35sp"
         android:textColor="#E6D72E"
         android:gravity="center"
@@ -60,145 +63,14 @@
         android:gravity="center_vertical"
         android:layout_marginTop="20dp">
 
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:layout_marginStart="1dp"
-            android:src="@drawable/calendar" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Charlie Puth ás 10:00 hrs"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_agendamentos"
+            android:layout_width="match_parent"
+            android:layout_height="692dp"
             android:textSize="28sp"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-black" />
-    </LinearLayout>
-
-    <!-- Alexandre -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_marginStart="1dp"
-            android:src="@drawable/calendar" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="3dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Alexandre ás 11:00 hrs"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp" />
-    </LinearLayout>
-
-    <!-- Bianca -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="38dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/calendar"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Bianca Souza ás 13:00 hrs"
-            android:textSize="28sp"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="3dp"
-            android:fontFamily="sans-serif-black" />
-    </LinearLayout>
-
-    <!-- Ronaldo -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="38dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/calendar"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-black"
-            android:layout_marginLeft="0dp"
-            android:text="Ronaldo Assis ás 14:30 hrs"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp" />
-    </LinearLayout>
-
-    <!-- Maria -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="38dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/calendar"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Maria Josefa ás 14:30 hrs"
-            android:textSize="28sp"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="1dp"
-            android:fontFamily="sans-serif-black" />
-    </LinearLayout>
-
-    <!-- Espaço antes do botão -->
-    <View android:layout_width="match_parent" android:layout_height="40dp" />
-
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/fundo_amarelo"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAIR"
-            android:layout_gravity="center"
-            android:textSize="30sp"
-            android:textColor="#000000"
-            android:fontFamily="sans-serif-medium" />
     </LinearLayout>
 
 </LinearLayout>
