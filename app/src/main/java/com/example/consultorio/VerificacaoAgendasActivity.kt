@@ -28,5 +28,15 @@ class VerificacaoAgendasActivity : Activity() {
             val intent = Intent(this, OrtodontiaAgendamentosActivity::class.java)
             startActivity(intent)
         }
+        val botaoClareamento = findViewById<LinearLayout>(R.id.botaoClareamento)
+        botaoClareamento.setOnClickListener {
+            val intent = Intent(this, ClareamentoAgendamentosActivity::class.java)
+            startActivity(intent)
+        }
+        val botaoAvaliacao = findViewById<LinearLayout>(R.id.botaoAvaliacao)
+        botaoAvaliacao.setOnClickListener {
+            val intent = Intent(this, AvaliacaoAgendamentosActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
