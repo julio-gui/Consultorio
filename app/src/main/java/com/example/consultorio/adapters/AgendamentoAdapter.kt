@@ -3,7 +3,6 @@ package com.example.consultorio.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.consultorio.R
@@ -30,10 +29,23 @@ class AgendamentoAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val agendamento = lista[position]
 
-        holder.tvAgendamento.text = "${agendamento.paciente}\n${agendamento.data} às ${agendamento.horario}"
+        val dataFormatada = formatarData(agendamento.data)
+        holder.tvAgendamento.text = "${agendamento.paciente}\n${dataFormatada} às ${agendamento.horario}"
 
         holder.itemView.setOnClickListener {
             onItemClick(agendamento, position)
+        }
+    }
+
+    private fun formatarData(dataOriginal: String): String? {
+        try {
+            val partes =
+                dataOriginal.split("/".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            val dia = if (partes[0].length == 1) "0" + partes[0] else partes[0]
+            val mes = if (partes[1].length == 1) "0" + partes[1] else partes[1]
+            return dia + "/" + mes + "/" + partes[2]
+        } catch (e: Exception) {
+            return dataOriginal
         }
     }
 }
