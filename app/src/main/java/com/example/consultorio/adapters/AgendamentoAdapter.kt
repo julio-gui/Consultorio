@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.consultorio.R
 import com.example.consultorio.model.Agendamento
 
-class AgendamentoAdapter(private val lista: List<Agendamento>) :
+class AgendamentoAdapter(
+    private val lista: List<Agendamento>,
+    private val onItemClick: (Agendamento, Int) -> Unit) :
     RecyclerView.Adapter<AgendamentoAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,5 +32,8 @@ class AgendamentoAdapter(private val lista: List<Agendamento>) :
         holder.txtData.text = "Data: ${agendamento.data}"
         holder.txtHora.text = "Horário: ${agendamento.horario}"
         holder.txtPaciente.text = "Paciente: ${agendamento.paciente}"
+        holder.itemView.setOnClickListener {
+            onItemClick(agendamento, position)
+        }
     }
 }

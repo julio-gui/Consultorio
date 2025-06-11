@@ -11,7 +11,7 @@ import com.example.consultorio.adapters.AgendamentoAdapter
 import com.example.consultorio.model.Agendamento
 import com.example.consultorio.utils.DBUtils.firestore
 
-class OrtodontiaAgendamentosActivity : AppCompatActivity() {
+class AvaliacaoAgendamentosActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AgendamentoAdapter
@@ -22,7 +22,7 @@ class OrtodontiaAgendamentosActivity : AppCompatActivity() {
         setContentView(R.layout.agendamentos)
 
         val titulo = findViewById<TextView>(R.id.titulo)
-        titulo.text = "Agendamentos - Ortodontia"
+        titulo.text = "Agendamentos - Avaliações"
 
         recyclerView = findViewById(R.id.recycler_agendamentos)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -32,7 +32,7 @@ class OrtodontiaAgendamentosActivity : AppCompatActivity() {
         }
         recyclerView.adapter = adapter
 
-        carregarAgendamentosOrtodontia()
+        carregarAgendamentosAvaliacao()
     }
 
     private fun mostrarDialogoFinalizar(agendamento: Agendamento, position: Int) {
@@ -63,10 +63,9 @@ class OrtodontiaAgendamentosActivity : AppCompatActivity() {
             .show()
     }
 
-
-    private fun carregarAgendamentosOrtodontia() {
+    private fun carregarAgendamentosAvaliacao() {
         firestore.collection("agendamentos")
-            .whereEqualTo("servico", "Ortodontia")
+            .whereEqualTo("servico", "Avaliacao")
             .whereEqualTo("finalizado", false)
             .get()
             .addOnSuccessListener { resultado ->

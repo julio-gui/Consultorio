@@ -33,17 +33,16 @@
     <!-- Espaço até faixa Ortodontia -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <!-- Faixa Ortodontia -->
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="67dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:background="@drawable/edittext_yellow_line"
+        android:id="@+id/botaoOrto"
+        android:layout_width="430dp"
+        android:layout_height="50dp"
+        android:background="@drawable/fundo_amarelo_curvado"
         android:layout_gravity="center"
-        android:gravity="center">>
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,13 +61,11 @@
 
     <!-- Clareamento 1 -->
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="67dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:background="@drawable/edittext_yellow_line"
+        android:layout_width="430dp"
+        android:layout_height="50dp"
+        android:background="@drawable/fundo_amarelo_curvado"
         android:layout_gravity="center"
-        android:gravity="center">>
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -87,22 +84,20 @@
 
     <!-- Clareamento 2 -->
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="67dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:background="@drawable/edittext_yellow_line"
+        android:layout_width="436.76dp"
+        android:layout_height="50dp"
+        android:background="@drawable/fundo_amarelo_curvado"
         android:layout_gravity="center"
         android:gravity="center">
 
         <TextView
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Avaliação"
             android:textColor="#000000"
             android:textSize="35sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
     </LinearLayout>
 
     <!-- Espaço até botão SAIR -->
@@ -112,11 +107,10 @@
 
     <!-- Botão SAIR -->
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="67dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        android:background="@drawable/edittext_yellow_line"
+        android:id="@+id/botaoSair"
+        android:layout_width="302dp"
+        android:layout_height="45dp"
+        android:background="@drawable/fundo_amarelo_curvado"
         android:layout_gravity="center"
         android:gravity="center">
 
@@ -127,6 +121,6 @@
             android:text="SAIR"
             android:textStyle="bold"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 </LinearLayout>
