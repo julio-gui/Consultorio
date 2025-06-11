@@ -27,6 +27,7 @@ Aplicativo Android voltado para o agendamento de serviços odontológicos, permi
 ### Administrador
 - Login com redirecionamento para a tela de verificação de agendas
 - Acesso a diferentes tipos de agendamentos por procedimento
+- Marcação de consultas como finalizadas
 - Logout da aplicação
 
 ---
@@ -65,7 +66,9 @@ consultorio/
 │   ├── ClareamentoAgendamentosActivity.kt # Lista de agendamentos de clareamento
 │   └── AvaliacaoAgendamentosActivity.kt # Lista de agendamentos de avaliação
 └── res/
-└── layout/                   # Layouts XML para todas as telas
+├── layout/                   # Layouts XML para todas as telas
+├── drawable/                 # Ícones e imagens
+└── values/                   # Cores, strings, estilos
 
 ## Pré-requisitos
     - Android Studio instalado
@@ -93,11 +96,11 @@ consultorio/
 8. Execute o projeto em um emulador ou dispositivo real.
 
 ## Licença
-Este projeto está licenciado sob a Licença MIT.
+    Este projeto está licenciado sob a Licença MIT.
 
 ## Autores
-Julio Guilherme – Desenvolvedor backend
-Kaio Siqueira Ramos - Desenvolvedor frontend
-Maria Vitória - Designer de protótipo e desenvolvedora frontend
-Matheus Chagas Gama - Desenvolvedor frontend
-Ronald Santos - Desenvolvedor frontend
+    Julio Guilherme – Desenvolvedor backend
+    Kaio Siqueira Ramos - Desenvolvedor frontend
+    Maria Vitória - Designer de protótipo e desenvolvedora frontend
+    Matheus Chagas Gama - Desenvolvedor frontend
+    Ronald Santos - Desenvolvedor frontend
