@@ -86,4 +86,5 @@ class AvaliacaoAgendamentosActivity : AppCompatActivity() {
                 Toast.makeText(this, "Erro ao carregar agendamentos", Toast.LENGTH_SHORT).show()
             }
     }
+
 }
