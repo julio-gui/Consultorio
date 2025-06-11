@@ -23,6 +23,10 @@ class VerificacaoAgendasActivity : Activity() {
             startActivity(intent)
             finish()
         }
-
+        val botaoOrto = findViewById<LinearLayout>(R.id.botaoOrto)
+        botaoOrto.setOnClickListener {
+            val intent = Intent(this, OrtodontiaAgendamentosActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
