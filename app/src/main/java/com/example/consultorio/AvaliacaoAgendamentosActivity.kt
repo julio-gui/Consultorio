@@ -1,6 +1,7 @@
 package com.example.consultorio
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -20,18 +21,23 @@ class AvaliacaoAgendamentosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.agendamentos)
-
+        val imgBack1: ImageView = findViewById(R.id.imgBack1)
+        val imgBack2: ImageView = findViewById(R.id.imgBack2)
         val titulo = findViewById<TextView>(R.id.titulo)
-        titulo.text = "Agendamentos - Avaliações"
-
+        titulo.text = "Avaliação"
         recyclerView = findViewById(R.id.recycler_agendamentos)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
         adapter = AgendamentoAdapter(listaAgendamentos) { agendamento, position ->
             mostrarDialogoFinalizar(agendamento, position)
         }
         recyclerView.adapter = adapter
 
+        imgBack1.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+        imgBack2.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
         carregarAgendamentosAvaliacao()
     }
 
