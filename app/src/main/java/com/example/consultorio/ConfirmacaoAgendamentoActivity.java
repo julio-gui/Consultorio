@@ -18,6 +18,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private String userId;
+    private Boolean finalizado = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
                         tvPaciente.setText("Paciente: " + nomePaciente);
                         tvData.setText("Data: " + dataFormatada);
                         tvHorario.setText("Horário: " + horario);
-                        configurarBotaoConfirmar(nomePaciente, dataRecebida, horario, servico);
+                        configurarBotaoConfirmar(nomePaciente, dataRecebida, horario, servico, finalizado);
                     } else {
                         Toast.makeText(this, "Paciente não encontrado", Toast.LENGTH_SHORT).show();
                         finish();
@@ -57,7 +58,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
                 });
     }
 
-    private void configurarBotaoConfirmar(String nomePaciente, String dataFormatada, String horario, String servico) {
+    private void configurarBotaoConfirmar(String nomePaciente, String dataFormatada, String horario, String servico, Boolean finalizado) {
         Button btnConfirmar = findViewById(R.id.btnConfirmar);
         btnConfirmar.setOnClickListener(v -> {
             Map<String, Object> agendamento = new HashMap<>();
@@ -66,13 +67,14 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
             agendamento.put("data", dataFormatada);
             agendamento.put("horario", horario);
             agendamento.put("servico", servico);
+            agendamento.put("finalizado", finalizado);
             db.collection("agendamentos")
                     .whereEqualTo("data", dataFormatada)
                     .whereEqualTo("horario", horario)
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
                         if (querySnapshot.isEmpty()) {
-                            confirmarAgendamento(agendamento, nomePaciente, dataFormatada, horario, servico);
+                            confirmarAgendamento(agendamento, nomePaciente, dataFormatada, horario, servico, finalizado);
                         } else {
                             Toast.makeText(this, "Horário indisponível", Toast.LENGTH_SHORT).show();
                         }
@@ -83,7 +85,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
         });
     }
 
-    private void confirmarAgendamento(Map<String, Object> agendamento, String nome, String data, String horario, String servico) {
+    private void confirmarAgendamento(Map<String, Object> agendamento, String nome, String data, String horario, String servico, Boolean finalizado) {
         db.collection("agendamentos")
                 .add(agendamento)
                 .addOnSuccessListener(documentReference -> {
@@ -93,6 +95,7 @@ public class ConfirmacaoAgendamentoActivity extends AppCompatActivity {
                     intent.putExtra("data", data);
                     intent.putExtra("horario", horario);
                     intent.putExtra("servico", servico);
+                    intent.putExtra("finalizado", false);
                     startActivity(intent);
                 })
                 .addOnFailureListener(e -> {

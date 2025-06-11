@@ -5,5 +5,6 @@ data class Agendamento(
     val horario: String = "",
     val paciente: String = "",
     val servico: String = "",
-    val userId: String = ""
+    val userId: String = "",
+    val finalizado: Boolean = false
 )

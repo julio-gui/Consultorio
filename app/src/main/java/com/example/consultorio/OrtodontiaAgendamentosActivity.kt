@@ -31,6 +31,7 @@ class OrtodontiaAgendamentosActivity : AppCompatActivity() {
     private fun carregarAgendamentosOrtodontia() {
         firestore.collection("agendamentos")
             .whereEqualTo("servico", "Ortodontia")
+            .whereEqualTo("finalizado", false)
             .get()
             .addOnSuccessListener { resultado ->
                 listaAgendamentos.clear()
