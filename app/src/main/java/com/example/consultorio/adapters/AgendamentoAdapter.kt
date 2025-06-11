@@ -3,6 +3,7 @@ package com.example.consultorio.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.consultorio.R
@@ -14,9 +15,8 @@ class AgendamentoAdapter(
     RecyclerView.Adapter<AgendamentoAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtData: TextView = itemView.findViewById(R.id.txt_data)
-        val txtHora: TextView = itemView.findViewById(R.id.txt_hora)
-        val txtPaciente: TextView = itemView.findViewById(R.id.txt_paciente)
+        //val ivCalendar: ImageView = itemView.findViewById(R.id.iv_calendar)
+        val tvAgendamento: TextView = itemView.findViewById(R.id.tv_agendamento)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,9 +29,9 @@ class AgendamentoAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val agendamento = lista[position]
-        holder.txtData.text = "Data: ${agendamento.data}"
-        holder.txtHora.text = "Horário: ${agendamento.horario}"
-        holder.txtPaciente.text = "Paciente: ${agendamento.paciente}"
+
+        holder.tvAgendamento.text = "${agendamento.paciente}\n${agendamento.data} às ${agendamento.horario}"
+
         holder.itemView.setOnClickListener {
             onItemClick(agendamento, position)
         }
