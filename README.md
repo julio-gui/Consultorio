@@ -1,6 +1,12 @@
 # Consultório App
 
-Aplicativo Android voltado para o agendamento de serviços odontológicos, permitindo que pacientes realizem marcações e que administradores visualizem e organizem os agendamentos. O sistema é integrado ao Firebase para autenticação e armazenamento de dados.
+Aplicativo Android desenvolvido como parte de um projeto acadêmico da disciplina de Programação Mobile, no curso de Análise e Desenvolvimento de Sistemas. O aplicativo tem como objetivo facilitar o agendamento de serviços odontológicos, permitindo que:
+
+- Pacientes realizem marcações de consultas.
+
+- Administradores visualizem, organizem e gerenciem os agendamentos.
+
+O sistema utiliza o Firebase para autenticação de usuários e armazenamento de dados, garantindo um funcionamento eficiente e seguro.
 
 ---
 
